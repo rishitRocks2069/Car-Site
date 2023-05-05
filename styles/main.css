@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;0,900;1,400&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: #191919;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+nav {
+  height: 4rem;
+  width: 100%;
+  background-color: #52489c;
+  display: flex;
+  align-items: center;
+  padding-inline: 1rem;
+  position: relative;
+  position: sticky;
+}
+nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+nav .heading {
+  color: #DB504A;
+  margin-right: auto;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+nav ul li {
+  display: inline-block;
+  transition: opacity 200ms;
+}
+nav ul li:hover {
+  filter: opacity(70%);
+}
+nav .toggle {
+  background: none;
+  border: 0;
+  color: #FFFFFF;
+  display: none;
+}
+
+@media (max-width: 500px) {
+  nav .toggle {
+    display: inline-block;
+    position: absolute;
+    right: 1rem;
+  }
+  nav .toggle #closed {
+    display: none;
+  }
+  nav .toggle.open #closed {
+    display: block;
+  }
+  nav .toggle.open #open {
+    display: none;
+  }
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 3rem;
+    z-index: 100;
+    flex-direction: column;
+    background-color: rgba(25, 25, 25, 0.2);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    width: 20%;
+    min-width: 100px;
+    padding-top: 1rem;
+    height: calc(100vh - 4rem);
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 250ms;
+  }
+  nav ul.hidden {
+    transform: scaleX(0);
+  }
+  nav ul li {
+    align-self: flex-end;
+    margin-right: 1rem;
+  }
+}
+section {
+  height: calc(100vh - 4rem);
+  width: 100%;
+  height: 100%;
+  padding: 5rem;
+  color: #FFFFFF;
+}
+section h1 {
+  color: #191919;
+  font-size: 2rem;
+}
+section:nth-of-type(odd) {
+  background-color: #DB504A;
+}
+section:nth-of-type(odd) img {
+  float: left;
+}
+section:nth-of-type(even) {
+  background-color: #B4CEB3;
+}
+section:nth-of-type(even) img {
+  float: right;
+}
+section:nth-of-type(even) a {
+  background-color: #DB504A;
+}
+section:nth-of-type(even) a:hover {
+  background-color: #d73b35;
+}
+section a {
+  color: #FFFFFF;
+  background-color: #B4CEB3;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  border-radius: 2px;
+  transition: background-color 250ms;
+}
+section a:hover {
+  background-color: #a5c4a3;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,94 @@
+@use 'base' as *;
+
+main{
+    display: grid;
+    place-items: center;
+    height: calc(100vh - 4rem);
+}
+.models{
+    background-color: rgba($green, 0.5);
+    padding: 1rem;
+    margin-block: 1rem;
+    border-radius: 5px;
+    width: 95vw;
+    max-width: 1000px;
+    *{
+        border-radius: inherit;
+    }
+    .tabs{
+        list-style: none;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+        justify-content: center;
+        margin-inline: auto;
+        padding: 0;
+        button{
+            border: 0;
+            background-color: rgb($black,0.1);
+            padding: 0.5rem 1rem ;
+            transition: background-color 100ms;
+            &:hover{
+                background-color: rgb($black,0.3);
+            }
+            &.active{
+                background-color: rgb($black,0.2);
+            }
+            h3{
+                margin: 0;
+            }
+        }
+    }
+    .tab-content{
+        display: none;
+        &.active{
+            display: block;
+        }
+        .models-list{
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            scroll-snap-type: x mandatory;
+            overflow-x: scroll;
+            padding-bottom: 2rem;
+            .model{
+                scroll-snap-align: start;
+                background-color: $purple;
+                padding: 0.5rem;
+                color: $white;
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+                width: 35%;
+                min-width: 250px;
+                img{
+                    width: 200px;
+                    height: 145px;
+                    object-fit: cover;
+                }
+                .details{
+                    justify-self: flex-end;
+                    background-color: rgba($black,0.2);
+                    padding: 0.2rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.2rem;
+                    h3{
+                        margin: 0;
+                    }
+                    a{
+                        color: $white;
+                        text-decoration: none;
+                        background-color: $red;
+                        padding: 0.3rem;
+                        width: max-content;
+                        &:hover{
+                            background-color: darken($red, 5%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

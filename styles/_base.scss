@@ -1,0 +1,104 @@
+$purple:#52489c;
+$red:#DB504A;
+$white:#FFFFFF;
+$black:#191919;
+$green:#B4CEB3;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+img{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+body,html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    color:$black;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+nav{
+    height: 4rem;
+    width: 100%;
+    background-color: $purple;
+    display: flex;
+    align-items:center;
+    padding-inline: 1rem;
+    position: relative;
+    position: sticky;
+    a{
+        color: $white;
+        text-decoration: none;
+    }
+    .heading{
+        color: $red;
+        margin-right: auto;
+    }
+    ul{
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        li{
+            display: inline-block;
+            transition: opacity 200ms;
+            &:hover{
+                filter: opacity(70%);
+            }
+        }
+    }
+    .toggle{
+       background: none; 
+       border: 0;
+       color: $white;
+       display: none;
+    }
+}
+
+@media (max-width:500px){
+    nav{
+        .toggle{
+            display: inline-block;
+            position: absolute;
+            right: 1rem;
+            #closed{
+                display: none;
+            }
+        }
+        .toggle.open{
+            #closed{
+                display: block;
+            }
+            #open{
+                display: none;
+            }
+        }
+        ul{
+            position: absolute;
+            right: 0;
+            top: 3rem;
+            z-index: 100;
+            flex-direction: column;
+            background-color: rgba($black , 0.2);
+            backdrop-filter: blur(5px);
+            width:20%;
+            min-width: 100px;
+            padding-top: 1rem;
+            height: calc(100vh - 4rem);
+            transform: scaleX(1);
+            transform-origin: right;
+            transition: transform 250ms;
+            &.hidden{
+                transform: scaleX(0);
+            }
+            li{
+                align-self: flex-end;
+                margin-right: 1rem;
+            }
+        }
+    }
+}

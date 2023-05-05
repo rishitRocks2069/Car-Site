@@ -1,0 +1,25 @@
+@use 'base' as *;
+
+main{
+    display: flex;
+    justify-content: center;
+    margin-inline: 10px;
+    .about{
+        h1{
+            position: relative;
+            display: inline-block;
+            &::after{
+                content: '';
+                position: absolute;
+                background-color: $red;
+                left: 0;
+                border-radius: 100vmax;
+                bottom: -10px;
+                height: 5px;
+                width: 70%;
+            }
+        }
+        width: 95vw;
+        max-width: 1000px;
+    }
+}

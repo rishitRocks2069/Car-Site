@@ -1,0 +1,42 @@
+@use "base" as *;
+
+section {
+  height: calc(100vh - 4rem);
+  width: 100%;
+  height: 100%;
+  padding: 5rem;
+  color: $white;
+  h1 {
+    color: $black;
+    font-size: 2rem;
+  }
+  &:nth-of-type(odd) {
+    background-color: $red;
+    img {
+      float: left;
+    }
+  }
+  &:nth-of-type(even) {
+    background-color: $green;
+    img {
+      float: right;
+    }
+    a {
+      background-color: $red;
+      &:hover {
+        background-color: darken($red, 5%);
+      }
+    }
+  }
+  a {
+    color: $white;
+    background-color: $green;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    border-radius: 2px;
+    transition: background-color 250ms;
+    &:hover {
+      background-color: darken($green, 5%);
+    }
+  }
+}
